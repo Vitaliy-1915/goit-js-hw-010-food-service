@@ -7,28 +7,43 @@ const Theme = {
     // bodyClass.classList.add(Theme.LIGHT);
     // console.log(bodyClass.classList);
 
-const onCheckboxChangeClassBody = document.querySelector('#theme-switch-toggle');
-onCheckboxChangeClassBody.addEventListener('change', changeClassBody);
+    
+    const onCheckboxChangeClassBody = document.querySelector('#theme-switch-toggle');
+    onCheckboxChangeClassBody.addEventListener('change', changeClassBody);
+    
 
 function changeClassBody(event) {
-       const bodyClass = document.body;
-    if (onCheckboxChangeClassBody.checked) {
-         bodyClass.classList.add(Theme.DARK);
-        bodyClass.classList.remove(Theme.LIGHT);
+    const bodyClass = document.body;
+    
         localStorage.setItem('Theme.DARK', Theme.DARK);
-        const saveDarkTheme = localStorage.getItem('Theme.DARK');
-        localStorage.removeItem('Theme.LIGHT');
- 
-    } else {
-        bodyClass.classList.add(Theme.LIGHT);
-        bodyClass.classList.remove(Theme.DARK);
+        const readDarkTheme = localStorage.getItem('Theme.DARK');
+        
         localStorage.setItem('Theme.LIGHT', Theme.LIGHT);
         const saveLightTheme = localStorage.getItem('Theme.LIGHT');
-        localStorage.removeItem('Theme.DARK');
+                 
+         if (readDarkTheme) {
+                bodyClass.classList.add(Theme.DARK);
+        };
+
+        if (onCheckboxChangeClassBody.checked) {
+            bodyClass.classList.add(Theme.DARK);
+            bodyClass.classList.remove(Theme.LIGHT);
+           
+            localStorage.removeItem('Theme.LIGHT');
+ 
+        } else {
+            bodyClass.classList.add(Theme.LIGHT);
+            bodyClass.classList.remove(Theme.DARK);
+          
+            localStorage.removeItem('Theme.DARK');
         
-    };
+        };
+        
        
-}
+    };
+
+    
+
         
 
         
