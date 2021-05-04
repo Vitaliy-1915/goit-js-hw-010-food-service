@@ -9,16 +9,6 @@ import template from "./templates/main.hbs";
 import templateMenu from "./menu.json";
 
 
-    const jsMenuTemplate = document.querySelector(".js-menu");
-    jsMenuTemplate.innerHTML = template(templateMenu);
-
-    
-
-
-    
-
-
-
-
-
+const jsMenuTemplate = document.querySelector(".js-menu");
+jsMenuTemplate.innerHTML = template(templateMenu);
 
